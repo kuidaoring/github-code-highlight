@@ -77,12 +77,18 @@ GithubCodeHighlighter.prototype = {
         document.head.appendChild(scriptElem);
     },
     setContent: function (content) {
-        var pre = document.createElement("pre");
+        var pre = document.createElement("pre"),
+            metaArea = document.createElement("div"),
+            fileName;
+
+        fileName = this.url.match(/[^/]+$/)[0];
+        metaArea.innerHTML = 'view original file. <a href="' + this.url + '">' + escape(fileName) + '</a>';
+        document.getElementById("codeArea").appendChild(metaArea);
+
         pre.innerHTML = escape(content);
         pre.setAttribute("class", "prettyprint linenums");
 
         document.getElementById("codeArea").appendChild(pre);
-
     },
     highlight: function () {
         prettyPrint();
