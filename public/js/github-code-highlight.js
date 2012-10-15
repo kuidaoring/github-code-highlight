@@ -82,7 +82,7 @@ GithubCodeHighlighter.prototype = {
             fileName;
 
         fileName = this.url.match(/[^/]+$/)[0];
-        metaArea.innerHTML = 'view original file. <a href="' + this.url + '">' + escape(fileName) + '</a>';
+        metaArea.innerHTML = 'view original file. <a href="' + this.url + '" target="_top">' + escape(fileName) + '</a>';
         document.getElementById("codeArea").appendChild(metaArea);
 
         pre.innerHTML = escape(content);
