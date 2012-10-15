@@ -99,7 +99,7 @@ GithubCodeHighlighter.prototype = {
             width = codeArea.scrollWidth;
 
         document.body.setAttribute("style", "width: " + width + "px");
-    },
+    }
 };
 
 
