@@ -109,10 +109,14 @@ if (!window.GithubCodeHighter) {
     window.GithubCodeHighlighter = GithubCodeHighlighter;
 }
 
-if (window.addEventListner) {
-    window.addEventListner("load", ghch.init);
+if (window.addEventListener) {
+    window.addEventListener("load", function () {
+        ghch.init();
+    });
 } else if(window.attachEvent){
-    window.attachEvent("onload", ghch.init);
+    window.attachEvent("onload", function () {
+        ghch.init();
+    });
 } else {
     var onloadFunc = window.onload;
     if (typeof onloadFunc === "function") {
