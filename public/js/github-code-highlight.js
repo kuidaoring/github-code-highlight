@@ -35,6 +35,12 @@ GithubCodeHighlighter.prototype = {
         var params = this.parseQueryString(),
             content;
 
+        if (params.lang) {
+            this.lang = " lang-" + params.lang;
+        } else {
+            this.lang = "";
+        }
+
         if (params.url) {
             this.url = params.url;
             this.fetchCode(this.url);
@@ -86,7 +92,7 @@ GithubCodeHighlighter.prototype = {
         document.getElementById("codeArea").appendChild(metaArea);
 
         pre.innerHTML = escape(content);
-        pre.setAttribute("class", "prettyprint linenums");
+        pre.setAttribute("class", "prettyprint linenums" + this.lang);
 
         document.getElementById("codeArea").appendChild(pre);
     },
